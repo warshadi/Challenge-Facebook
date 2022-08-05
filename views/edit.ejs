@@ -1,0 +1,13 @@
+<%- include('./components/header.ejs') %>
+<h1>Welcome to FaceBook</h1>
+<div id="form-mess" style="display: block">
+    <form action=/Feed/edit/<%= data._id %>  method="POST">
+      <label for="name">Name</label>
+      <input type="text" name="name" value=<%= data.name %>  required />
+      <label for="message">Message</label>
+      <input type="text" name="post" value=<%= data.post %> required />
+      <button>Submit</button>
+    </form>
+</div>
+
+<%- include('./components/footer.ejs') %>

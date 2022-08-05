@@ -1,0 +1,36 @@
+<%- include('./components/header.ejs') %>
+<h1>Welcome to FaceBook</h1>
+<div>
+  <h5 id="add">Add Post</h5>
+
+  <!-- start form for write the message -->
+  <div id="form-mess">
+    <form action=/Feed method="POST">
+      <label for="name">Name</label>
+      <input type="text" name="name" required placeholder="your Name..."/>
+      <label for="message">Message</label>
+      <input type="text" name="post" required placeholder="your post..."/>
+      <button id="sub">Add Post</button>
+    </form>
+  </div>
+  <!-- End form for write the message -->
+  <!-- start display messages -->
+  <% if(data.length > 0) { %> 
+    <% data.forEach( (ele) => { %>
+      <% console.log(ele.name) %> 
+      <div class="card first-page" style="width: 18rem">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted"><%= ele.name %></h6>
+          <p class="card-text"><%= ele.post %></p>
+          <a href=/Feed/<%=ele._id %> class="card-link">See more</a>
+        </div>
+      </div>
+    <% }) %> 
+    <% } else { %>
+      <p id="noData">No Data in Database</p>
+    <% } %>
+  
+  <!-- End display messages -->
+</div>
+
+<%- include('./components/footer.ejs') %>

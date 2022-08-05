@@ -1,0 +1,18 @@
+<%- include('./components/header.ejs') %>
+<h1>Welcome to FaceBook</h1>
+<div>
+    <% if(data) { %>
+          <div class="card edit-card" style="width: 18rem">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted"><%= data.name %></h6>
+              <p class="card-text"><%= data.post %></p>
+              <div id="control">
+                <a href=/Feed/edit/<%= data._id%> id="control-u">Update</a>
+                <a href=/delete-post/<%= data._id%> id="control-d">Delete</a>
+              </div>
+            </div>
+          </div>
+    <% } %> 
+</div>
+
+<%- include('./components/footer.ejs') %>
