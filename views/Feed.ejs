@@ -7,30 +7,29 @@
   <div id="form-mess">
     <form action=/Feed method="POST">
       <label for="name">Name</label>
-      <input type="text" name="name" required placeholder="your Name..."/>
+      <input type="text" name="name" maxlength="25" required placeholder="your Name..."/>
       <label for="message">Message</label>
-      <input type="text" name="post" required placeholder="your post..."/>
+      <input type="text" name="post" maxlength="100" required placeholder="your post..."/>
       <button id="sub">Add Post</button>
     </form>
   </div>
   <!-- End form for write the message -->
   <!-- start display messages -->
-  <% if(data.length > 0) { %> 
-    <% data.forEach( (ele) => { %>
-      <% console.log(ele.name) %> 
-      <div class="card first-page" style="width: 18rem">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted"><%= ele.name %></h6>
-          <p class="card-text"><%= ele.post %></p>
-          <a href=/Feed/<%=ele._id %> class="card-link">See more</a>
+    <% if(data.length > 0) { %> 
+      <% data.forEach( (ele) => { %>
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted"><%= ele.name %></h6>
+              <p class="card-text"><%= ele.post %></p>
+              <a href=/Feed/<%=ele._id %> class="card-link">See more</a>
+            </div>
+          </div>
         </div>
-      </div>
-    <% }) %> 
-    <% } else { %>
-      <p id="noData">No Data in Database</p>
-    <% } %>
-  
+      <% }) %> 
+      <% } else { %>
+        <p id="noData">No Data in Database</p>
+      <% } %>
+  </div>
   <!-- End display messages -->
-</div>
 
 <%- include('./components/footer.ejs') %>

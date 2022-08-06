@@ -3,9 +3,9 @@
 <div id="form-mess" style="display: block">
     <form action=/Feed/edit/<%= data._id %>  method="POST">
       <label for="name">Name</label>
-      <input type="text" name="name" value=<%= data.name %>  required />
+      <input type="text" name="name" value="<%= data.name %>">
       <label for="message">Message</label>
-      <input type="text" name="post" value=<%= data.post %> required />
+      <input type="text" name="post" value="<%= data.post %>">
       <button>Submit</button>
     </form>
 </div>

@@ -44,6 +44,7 @@ const editMessage = (req, res) => {
     if(req.method === "GET") {
         Message.findById({_id: req.params.id})
         .then((data) => {
+          console.log(data.name);
           res.render("edit", {data});
         })
         .catch((err) => {
